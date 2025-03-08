@@ -9,7 +9,7 @@ describe("Teste de Funcao de Soma", ()=>{
         expect(soma(65,3)).toBe(68);
     });
 
-    test('soma de -3-4 deve ser -7',()=>{
+    test('soma 50',()=>{
         expect(soma(-3,-4)).toBe(-7);
     });
 });
