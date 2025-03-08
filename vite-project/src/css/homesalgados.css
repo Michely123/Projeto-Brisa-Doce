@@ -1,0 +1,203 @@
+body {
+    background: linear-gradient(to bottom, #4b7249, #ffffff 50%, #c795a9);
+    font-size: 14px;
+}
+
+.header-icon {
+    margin: 0 auto 10px;
+    width: 120px;
+    max-width: 100%;
+}
+
+@media (min-width: 768px) {
+    .header-icon {
+        width: 160px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .header-icon {
+        width: 200px;
+    }
+}
+
+button {
+    display: block;
+    width: 90%;
+    padding: 4px 0;
+    margin: 1px auto;
+    background-color: #fcbcdc;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #f8b3c4;
+}
+
+.botao-acesar {
+    background-color: #6cb444;
+}
+
+.botao-acesar:hover {
+    background-color: #5a9e3e;
+}
+
+.goobuttn {
+    background-color: #808080;
+}
+
+.goobuttn:hover {
+    background-color: #696969;
+}
+
+input[type="text"],
+input[type="password"] {
+    display: block;
+    width: 90%;
+    padding: 6px 0;
+    margin: 6px auto;
+    background-color: #fcbcdc;
+    color: #333;
+    border: none;
+    border-radius: 20px;
+    font-size: 12px;
+    text-align: center;
+}
+
+input[type="text"]::placeholder,
+input[type="password"]::placeholder {
+    color: #666;
+    text-align: center;
+}
+
+.produtos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    justify-items: center;
+    margin: 0 auto;
+    max-width: 500px;
+    margin-bottom: 20px;
+}
+
+.produto-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 8px;
+    text-align: center;
+    background: #fff;
+    max-width: 160px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.produto-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.produto-card p {
+    margin: 4px 0;
+    font-size: 12px;
+}
+
+.preco-produto {
+    font-weight: bold;
+    color: #4b7249;
+    font-size: 12px;
+}
+
+.produto-card .titulo {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.produto-card .actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.tabs button {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 20px;
+    background: #fcbcdc;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease;
+}
+
+.tabs button.active {
+    background: #4b7249;
+    color: white;
+}
+
+.tabs button:hover {
+    background: #f8b3c4;
+}
+
+.search-bar input {
+    padding: 8px;
+    border-radius: 15px;
+    border: 1px solid #ddd;
+    width: 70%;
+    margin: 10px auto;
+    display: block;
+    font-size: 12px;
+}
+
+.footer-buttons {
+    display: flex;
+    justify-content: space-around;
+    padding: 5px 0;
+    background-color: #ffffff;
+    margin-top: 20px;
+}
+
+.footer-buttons button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.header-text {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+}
+input[type="text-buscar"] {
+    padding: 6px 0;
+    width: 90%;
+    margin: 6px auto;
+    background-color: #fcbcdc;
+    color:  #333;
+    border: none;
+    border-radius: 20px;
+    font-size: 12px;
+    text-align: center;
+}
+
+input[type="text-buscar"]::placeholder {
+    color: #ffffff;
+    text-align: center;
+}

@@ -1,0 +1,48 @@
+.produtos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);   
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  .produto-card {
+    width: 100%; 
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  
+  .produto-card img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  
+  .produto-card p {
+    margin-top: 8px;
+    font-weight: bold;
+    font-size: 14px;
+  }
+  .navbar {
+    background-color: transparent;
+    padding: 10px;
+  }
+  
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .search-bar input {
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
