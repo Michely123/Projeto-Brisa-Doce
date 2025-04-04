@@ -1,0 +1,97 @@
+body {
+    background: linear-gradient(to bottom, #4b7249, #ffffff 50%, #c795a9);
+}
+
+.logo {
+    display: block;
+    margin: 0 auto 20px;
+    width: 150px;  
+    max-width: 100%;
+    height: auto;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 6px 0;  
+    margin: 8px 0;   
+    background-color: #fcbcdc;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-size: 14px;  
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #f8b3c4;
+}
+
+input[type="text"],
+input[type="password"] {
+    display: block;
+    width: 100%;
+    padding: 8px 0;  
+    margin: 8px 0; 
+    background-color: #fcbcdc;
+    color: #333;
+    border: none;
+    border-radius: 50px;
+    font-size: 14px;  
+    text-align: center;
+    height: 35px;  
+}
+
+input[type="text"]::placeholder,
+input[type="password"]::placeholder {
+    color: #666;
+    text-align: center;
+}
+
+
+.botao-acesar {
+    display: block;
+    width: 100%;
+    padding: 8px 0;  
+    margin: 8px 0;   
+    background-color: #6cb444;  
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-size: 14px; 
+    cursor: pointer;
+    text-align: center;
+}
+
+.botao-acesar:hover {
+    background-color: #5a9e3e; 
+}
+
+@media (min-width: 768px) {
+    .logo {
+        width: 200px;  
+    }
+}
+
+@media (min-width: 1024px) {
+    .logo {
+        width: 250px;  
+    }
+}
+
+.goobuttn {
+    display: block;
+    width: 100%;
+    padding: 6px 0;  
+    margin: 8px 0;  
+    background-color: #808080; 
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-size: 14px;  
+    cursor: pointer;
+}
+
+.goobuttn:hover {
+    background-color: #696969; 
+}
