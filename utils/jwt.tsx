@@ -1,8 +1,24 @@
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
-import jwt from 'jsonwebtoken';
 
-const ACESS_SECRET = process.env
+const ACESS_SECRET = process.env.JWT_SECRET || 'acess-secret';
+const REFRESH_SECRETS= process.env.JWT_REFRESH_SECRET || 'refresh-secret';
+
+export function gerarAcessoToken(playload: any){
+    return jwt.sign(playload, ACESS_SECRET, {espiresIn:'20m'});
+}
+
+export function gerarRefreshToken(playload: any){
+    return jwt.sign(playload, REFRESH_SECRETS, {espiresIn:'1d'});
+}
+
+export function verificaAcessToken(token: string){
+    return jwt.verify(token, ACESS_SECRET);
+}
+
+export function verificaRefreshToken(token: string){
+    return jwt.verify(token, REFRESH_SECRETS);
+}
 
 dotenv.config();
 const chavesecreta = process.env.JWT_SECRET || "brisadocebrisadocebrisadoce"
