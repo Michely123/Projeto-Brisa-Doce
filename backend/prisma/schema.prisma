@@ -1,0 +1,131 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Clientes {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  nome       String
+  email      String   @unique
+  senha      String
+  cpf        String   @unique
+  vendas     Vendas[]
+  encomendas Encomendas[]
+  sessoes    Sessao[]
+}
+
+model Sessao {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  token      String   @unique
+  ip         String?
+  userAgent  String?
+  expiresAt  DateTime
+  clienteId  String   @db.ObjectId
+  cliente    Clientes @relation(fields: [clienteId], references: [id])
+}
+
+model Fornecedores {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  nome         String
+  cnpj         String   @unique
+  email        String
+  contato      String?
+  categoria    String?
+  uf           String?
+  cidade       String?
+  entradas     Entradas[]
+}
+
+model Ingredientes {
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  nome           String
+  unMedida       String
+  qtdEstoque     Float
+  valor          Float
+  itensEntrada   Itens_Entrada[]
+  receitas       Receitas[]
+}
+
+model Entradas {
+  id           String        @id @default(auto()) @map("_id") @db.ObjectId
+  data         DateTime
+  notaFiscal   String?
+  fornecedorId String        @db.ObjectId
+  fornecedor   Fornecedores  @relation(fields: [fornecedorId], references: [id])
+  itensEntrada Itens_Entrada[]
+}
+
+model Itens_Entrada {
+  id            String       @id @default(auto()) @map("_id") @db.ObjectId
+  entradaId     String       @db.ObjectId
+  ingredienteId String       @db.ObjectId
+  quantidade    Float
+  entrada       Entradas     @relation(fields: [entradaId], references: [id])
+  ingrediente   Ingredientes @relation(fields: [ingredienteId], references: [id])
+}
+
+model Produtos_Vendas {
+  id              String            @id @default(auto()) @map("_id") @db.ObjectId
+  nome            String
+  valor           Float
+  unMedida        String
+  itensVenda      Itens_Vendas[]
+  itensEncomenda  Itens_Encomenda[]
+  receitas        Receitas[]
+}
+
+model Receitas {
+  id             String           @id @default(auto()) @map("_id") @db.ObjectId
+  produtoId      String           @db.ObjectId
+  ingredienteId  String           @db.ObjectId
+  quantidade     Float
+  produto        Produtos_Vendas  @relation(fields: [produtoId], references: [id])
+  ingrediente    Ingredientes     @relation(fields: [ingredienteId], references: [id])
+}
+
+model Vendas {
+  id               String          @id @default(auto()) @map("_id") @db.ObjectId
+  clienteId        String          @db.ObjectId
+  data             DateTime
+  horario          String
+  valorTotal       Float
+  desconto         Float
+  valorFinal       Float
+  cliente          Clientes        @relation(fields: [clienteId], references: [id])
+  itensVenda       Itens_Vendas[]
+}
+
+model Itens_Vendas {
+  id             String           @id @default(auto()) @map("_id") @db.ObjectId
+  vendaId        String           @db.ObjectId
+  produtoId      String           @db.ObjectId
+  quantidade     Float
+  valorUnitario  Float
+  unMedida       String
+  venda          Vendas           @relation(fields: [vendaId], references: [id])
+  produto        Produtos_Vendas  @relation(fields: [produtoId], references: [id])
+}
+
+model Encomendas {
+  id               String            @id @default(auto()) @map("_id") @db.ObjectId
+  clienteId        String            @db.ObjectId
+  valorTotal       Float
+  cliente          Clientes          @relation(fields: [clienteId], references: [id])
+  itensEncomenda   Itens_Encomenda[]
+}
+
+model Itens_Encomenda {
+  id                    String           @id @default(auto()) @map("_id") @db.ObjectId
+  encomendaId           String           @db.ObjectId
+  produtoId             String           @db.ObjectId
+  quantidade            Float
+  valorUnitario         Float
+  valorTotalProduto     Float
+  unMedida              String
+  encomenda             Encomendas       @relation(fields: [encomendaId], references: [id])
+  produto               Produtos_Vendas  @relation(fields: [produtoId], references: [id])
+}
